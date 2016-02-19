@@ -10,7 +10,7 @@
 [![stack overflow][stackoverflow-badge]][stackoverflow-url]
 [![slack chat][slack-badge]][slack-url]
 
-This plugin allows you to render templating syntax in your source files. You can use any templating engine supported by [consolidate.js](https://github.com/tj/consolidate.js#supported-template-engines). For support questions please use [stack overflow][stackoverflow-url] or our [slack channel][slack-url]. For questions about cloudinary try the aforementioned channels, as well as their [documentation](http://cloudinary.com/documentation/). Specifically the part concerning the [admin api](http://cloudinary.com/documentation/admin_api), which is what this plugin provides access to.
+This plugin allows you to retrieve data from the cloudinary API. For support questions please use [stack overflow][stackoverflow-url] or our [slack channel][slack-url]. For questions about cloudinary try the aforementioned channels, as well as their [documentation](http://cloudinary.com/documentation/). Specifically the part concerning the [admin api](http://cloudinary.com/documentation/admin_api), which is what this plugin provides access to.
 
 ## Installation
 
