@@ -6,9 +6,95 @@
   "version": "0.1.0",
   "license": "MIT",
   "main": "lib/index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test mocha --compilers js:babel-register test",
+    "test:watch": "cross-env NODE_ENV=test mocha --compilers js:babel-register --watch test"
+  },
   "dependencies": {
     "cloudinary": "^1.3.0",
     "debug": "^2.2.0",
     "lodash.merge": "^4.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "babel-preset-es2015-node6": "^0.3.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.16.3",
+    "chai": "^3.5.0",
+    "config": "^1.24.0",
+    "cross-env": "^3.1.3",
+    "eslint": "^3.7.1",
+    "eslint-config-standard": "^6.2.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-promise": "^3.0.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "gh-pages": "^0.12.0",
+    "metalsmith": "^2.3.0",
+    "mocha": "^3.1.2",
+    "mocha-eslint": "^3.0.1",
+    "nock": "^9.0.2",
+    "node-readme": "^0.1.9",
+    "node-resemble-js": "^0.1.1",
+    "nyc": "^8.3.1",
+    "sinon": "^1.17.7"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "standard",
+    "installedESLint": true,
+    "plugins": [
+      "standard",
+      "babel"
+    ],
+    "env": {
+      "node": true,
+      "mocha": true
+    }
+  },
+  "babel": {
+    "presets": [
+      "stage-0"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          "es2015-node6"
+        ],
+        "plugins": [
+          "istanbul"
+        ]
+      },
+      "node4": {
+        "presets": [
+          "es2015-node4"
+        ]
+      },
+      "node6": {
+        "presets": [
+          "es2015-node6"
+        ]
+      }
+    }
+  },
+  "nyc": {
+    "include": [
+      "lib/**/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "directories": {
+    "test": "test"
   }
 }

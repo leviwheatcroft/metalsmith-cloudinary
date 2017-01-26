@@ -1,1 +1,8 @@
 node_modules
+test/fixtures/*/build
+.nyc_output
+.node-persist
+coverage
+docs
+config/local.js
+npm-debug.log
