@@ -84,6 +84,7 @@ You can pass options to `metalsmith-cloudinary` with the [Javascript API](https:
 * [api_key](#credentials): your api key (required)
 * [api_secret](#credentials): your api secret (required)
 * [params](#params): an optional object of parameters to pass to the cloudinary api (optional)
+* ttl: ms to retain cache, false to disable cache, default: (60 * 60 * 1000) / 500 (optional)
 
 ### credentials
 
@@ -123,6 +124,11 @@ An object of [optional parameters](http://cloudinary.com/documentation/admin_api
 ```
 
 Would retrieve 10 results at maximum and store them in your `metadata`.
+
+## build & test
+
+`npm run babel:node6` to build
+`npm run test` or `npm run test:watch` for tests, no global dependencies required
 
 ## License
 
