@@ -8,8 +8,6 @@ var _debug = require('debug');
 
 var _debug2 = _interopRequireDefault(_debug);
 
-var _lodash = require('lodash');
-
 var _nodePersist = require('node-persist');
 
 var _nodePersist2 = _interopRequireDefault(_nodePersist);
@@ -41,7 +39,7 @@ module.exports = function plugin(opts) {
   const ttl = opts.ttl !== undefined ? opts.ttl : 60 * 60 * 1000 / 500;
   const defaultParams = { 'max_results': 500 };
   const userParams = opts.params || {};
-  const mergedParams = (0, _lodash.merge)({}, defaultParams, userParams);
+  const mergedParams = Object.assign({}, defaultParams, userParams);
 
   _nodePersist2.default.initSync({ ttl });
   if (ttl === false) _nodePersist2.default.removeItemSync('resources');
