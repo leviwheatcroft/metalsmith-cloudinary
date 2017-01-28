@@ -6,3 +6,4 @@ coverage
 docs
 config/local.js
 npm-debug.log
+.node-persist

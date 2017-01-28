@@ -7,13 +7,23 @@
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
+    "docs": "rm -fr ./docs/* && docker -o ./docs -I -x dist,.README.md,test/fixtures,node_modules,docs",
+    "readme": "node-readme",
+    "gh-pages": "gh-pages -d docs",
+    "build": "npm run babel:node4 && npm run babel:node6 && npm run readme && npm run docs && cp docs/README.md.html docs/index.html && npm run gh-pages",
+    "babel:node4": "cross-env NODE_ENV=node4 babel lib -d dist/node4",
+    "babel:node6": "cross-env NODE_ENV=node6 babel lib -d dist",
+    "test:coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --check-coverage --lines 100 npm run test",
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-register test",
-    "test:watch": "cross-env NODE_ENV=test mocha --compilers js:babel-register --watch test"
+    "test:watch": "cross-env NODE_ENV=test mocha --compilers js:babel-register --watch test",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "cloudinary": "^1.3.0",
     "debug": "^2.2.0",
-    "lodash.merge": "^4.3.0"
+    "lodash.merge": "^4.3.0",
+    "node-persist": "^2.0.8"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
